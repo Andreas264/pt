@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-panel {
+    width: 40%;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.right-panel {
+    width: 60%;
+}
+
+#poi-list {
+    list-style: none;
+    padding: 0;
+}
+
+#poi-list li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa destinácií</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Freibus SLOVAKIA Tour s.r.o.</h1>
+    </header>
+    <div class="container">
+        <div class="left-panel">
+        <div class="first">
+            <img src="pictures/bod_1.webp" alt="Obrázok bodu záujmu"> 
+            <h2>Wander through Gaudí’s enchanting Park Güell</h2>
+            <ul id="poi-list">
+              
+            </ul>
+        </div>
+        <div class="second">
+            <img src="pictures/bod_3.webp" alt="Obrázok bodu záujmu"> 
+            <h2>Catch a concert at Palau de la Música Catalana</h2>
+            <ul id="poi-list">
+            
+            </ul>
+        </div>
+        <div class="third">
+            <img src="pictures/bod4.webp" alt="Obrázok bodu záujmu"> 
+            <h2>Go plaza-hopping in Gràcia</h2>
+            <ul id="poi-list">
+            
+            </ul>
+        </div>
+        <div class="forth">
+            <img src="pictures/bod_5.webp" alt="Obrázok bodu záujmu"> 
+            <h2>Hop the train to Sitges</h2>
+            <ul id="poi-list">
+            
+            </ul>
+        </div>
+        <div class="fifth">
+            <img src="pictures/bod_6.webp" alt="Obrázok bodu záujmu"> 
+            <h2>Sip award-winning cocktails</h2>
+            <ul id="poi-list">
+
+            </ul>
+        </div>
+    </div>
+        <div class="right-panel"> 
+    
+    <script>
+   
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: { lat: -33.9, lng: 151.2 },
+        });
+
+        setMarkers(map);
+      }
+      const beaches = [
+    //tu meníme flag pointy
+    ["Guadí house", 41.409883, 2.172760, 1],
+  ["Música Catalana", 41.387535, 2.175552, 2],
+  ["Grácia", 37.172839, -3.604527, 3],
+  ["Sitges", 41.238466, 1.806912, 4],
+  ["Barcelona Sips", 41.404958, 2.154208, 1],
+      ];
+
+      function setMarkers(map) {
+      
+        const image = {
+          url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(20, 32),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(0, 32),
+        };
+        const shape = {
+          coords: [1, 1, 1, 20, 18, 20, 18, 1],
+          type: "poly",
+        };
+
+        for (let i = 0; i < beaches.length; i++) {
+          const beach = beaches[i];
+
+          new google.maps.Marker({
+            position: { lat: beach[1], lng: beach[2] },
+            map,
+            icon: image,
+            shape: shape,
+            title: beach[0],
+            zIndex: beach[3],
+          });
+        }
+      }
+
+      window.initMap = initMap;
+    </script>
+    <style>
+    
+      #map {
+        height: 100%;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</div>
+</html>
+      
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
